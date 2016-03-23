@@ -32,5 +32,5 @@ Note.prototype = {
     this.gainNode.gain.value = 0;
   }
 };
-
+window.Note = Note;
 module.exports = Note;

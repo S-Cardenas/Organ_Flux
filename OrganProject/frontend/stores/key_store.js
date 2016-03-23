@@ -1,5 +1,6 @@
 var Store = require('flux/utils').Store;
 var AppDispatcher = require('../dispatcher/app_dispatcher');
+var KeyConstants = require('../constants/key_constants');
 
 var KeyStore = new Store(AppDispatcher);
 
@@ -12,17 +13,22 @@ var resetKeys = function (key) {
 
 };
 
-Keystore.__onDispatch = function (payload) {
+KeyStore.keys = function() {
+	return _keys.slice();
+};
+
+KeyStore.__onDispatch = function (payload) {
 	switch (payload.actionType) {
 		case KeyConstants.KEY_PRESSED:
 			//do some stuff
 			resetKeys(payload.noteName);
-			KeyStore.emitChange();
+			KeyStore.__emitChange();
 			break;
 
 		case KeyConstants.KEY_RELEASED:
+			// debugger;
 			_keys = [];
-			KeyStore.emitChange();
+			KeyStore.__emitChange();
 			break;
 	}
 

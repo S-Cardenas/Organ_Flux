@@ -1,8 +1,8 @@
-var KeyActions = require('../action/key_actions');
+var KeyActions = require('../actions/key_actions');
 
 var Mapping = {
-	65: 'X',
-	83: 'Y'
+	65: 'a',
+	83: 's'
 };
 
 
@@ -10,13 +10,13 @@ var KeyListener = {
 
 	keyUp: function() {
 		$(document).on("keyup", function(e) {
-			KeyActions.keyPressed(Mapping[e.keyCode]);
+			KeyActions.keyReleased(Mapping[e.keyCode]);
 		});
 	},
 
 	keyDown: function() {
 		$(document).on("keydown", function(e) {
-			KeyActions.keyReleased(Mapping[e.keyCode]);
+			KeyActions.keyPressed(Mapping[e.keyCode]);
 		});
 
 	},

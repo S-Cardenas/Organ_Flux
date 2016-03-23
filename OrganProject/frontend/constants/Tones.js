@@ -1,6 +1,6 @@
 var TONES = {
-	"X": 800,
-	"Y": 293.66
+	"a": 800.00,
+	"s": 600.00
 };
 
  module.exports = TONES;

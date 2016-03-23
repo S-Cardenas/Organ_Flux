@@ -17,3 +17,5 @@ var KeyActions = {
 		AppDispatcher.dispatch(action);
 	}
 };
+
+module.exports = KeyActions;
